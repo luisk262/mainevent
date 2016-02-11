@@ -1,0 +1,107 @@
+{% for entity in entities %}
+    <tr class="default">
+        <td class="hidden-print">
+            <!--variable print define si imprimimos notificacion o no-->
+            {%set print =false%}
+            <!-- variable Ntestado es el estado de la notificacion-->
+            {%set Ntestado=''%}
+            <!-- verificamos que existan notificaciones para este catalogo o no-->
+            {%if Notificaciones%}
+                <!-- iniciamos bucle -->
+                {% for Notificacion in Notificaciones %}
+                    <!--si son iguales, notifique que tiene que imprimir, y envie estado-->
+                    {% if  entity.idhv == Notificacion.idHojadevida %}
+                        {%set print =true%}
+                        {%set Ntestado=Notificacion.estado%}
+                    {%endif%}
+                {%endfor%}
+                {%if print %}
+                    {%if Ntestado == 'Enviado' %}
+                        <span class="fa fa-send btn form-control"></span>                                                 
+                    {%elseif Ntestado == 'Visto'%}
+                        <span class="fa fa-eye btn form-control"></span>
+                    {%elseif Ntestado == 'Visto_A'%}
+                        <span class="fa fa-check btn form-control"></span>
+                    {%elseif Ntestado == 'Visto_R'%}
+                        <span class="fa fa-times btn form-control"></span>
+                    {%elseif Ntestado == 'Cord_A'%}
+                        <span class="fa fa-check-circle btn form-control"></span>
+                    {%elseif Ntestado == 'Cord_R'%}
+                        <span class="fa fa-times-circle btn form-control"></span>
+                    {%endif%}
+                {%else%}
+                    <input type="checkbox" name="entities[]" value="{{entity.idhv}}">
+                {%endif%}
+            {%else%}
+                <input type="checkbox" name="entities[]" value="{{entity.idhv}}">
+            {%endif%}
+        </td>
+
+        <td>
+            {% if entity.image == '' %}
+        <center>
+            <div class="block">
+                <img  u=image height="100%" width="100%" src="{{ asset('upload/default/default.jpg')}}" />
+            </div>           
+        </center>
+    {% else %}
+        <center>
+            <div class="block">
+                <img   u=image height="100%" width="100%" src="{{web_image('upload/Hojasdevida/' ~ entity.nit ~'/' ~ entity.image).resize(210,210)}}" />
+            </div>           
+        </center>
+    {%endif%}
+</td>
+<td>
+    {% if entity.image1 == '' %}
+        <center>
+            <div class="block">
+        <img   u=image height="100%" width="100%" src="{{ asset('upload/default/default.jpg')}}" />
+          </div>           
+        </center>
+    {% else %}
+        <center>
+            <div class="block">
+        <img  class="img-thumbnail" u=image height="100%" width="100%" src="{{web_image('upload/Hojasdevida/' ~ entity.nit ~'/' ~ entity.image1).resize(210,210)}}" />
+        </div>           
+        </center>
+            {%endif%}
+</td>
+<td class="visible-print">{{ entity.tipoDocumento }}{{ entity.Nit }}</td>
+<td>{{ entity.nombre }}</td>
+<td>{{ entity.apellido }}</td>
+
+{#   {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) %}
+       <td class="hidden-print">{{ entity.emailPersonal }}</td>
+   {%endif%}
+   <td>{{ entity.estatura }}</td>
+   <td>
+       {% set number1 = entity.fechaNac|date("Y") %}
+       {% set number2 = "now"|date("Y") %}
+       {% set aux= ((number2 - number1)) %}
+       {{aux}}
+   </td>
+#}
+{% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) %}
+    <td class="hidden-print">{{ entity.TelCe }}</td>
+{%endif%}
+{# 
+    <td class="hidden-print">{{ entity.tallaCamisa }}</td>
+    <td class="hidden-print">{{ entity.tallaChaqueta }}</td>
+    <td class="hidden-print">{{ entity.tallaPantalon }}</td>
+#}
+</tr>
+{% endfor %}
+<!--se incluyo esta liena de codigo-->
+{% include "AdminAdminBundle:Registro:paginacion.html.twig" %}
+
+<script>
+    (function ($) {
+
+        /* tooltip */
+        $('a[data-toggle="tooltip"]').tooltip();
+
+    })(jQuery);
+</script>
+
+<!--fin linea incluida->

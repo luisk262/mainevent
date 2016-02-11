@@ -1,0 +1,351 @@
+{% extends 'AdminAdminBundle:Dashboard:base.html.twig' %}
+{% block Contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Editar {{entity.nombre}}  {{entity.apellido}}</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Hoja de vida
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover">
+                        <tbody>
+                            <tr>{{ form_start(edit_form) }}
+                                <th>Fotos</th>
+                                <td>
+                                    {% if entity.image == '' %}
+
+                                        <img u=image height="210" width="210" src="{{ asset('upload/default/default.jpg')}}" />
+                                    {% else %}
+                                        <a href="{{ path('hojadevida_showfoto', { 'nit':entity.nit, 'foto': entity.image,'id':entity.idhv  }) }}">
+                                            <img u=image height="310" width="310" src="{{web_image('upload/' ~ entity.nit ~'/' ~ entity.image).resize(310,310)}}" />
+                                        </a>
+                                    {%endif%}
+                                    {{ form_row(edit_form.image)}}
+                                </td>
+                                <td>
+                                    {% if entity.image1 == '' %}
+
+                                        <img u=image height="210" width="210" src="{{ asset('upload/default/default.jpg')}}" />
+                                    {% else %}
+                                        <a href="{{ path('hojadevida_showfoto', { 'nit':entity.nit, 'foto': entity.image1,'id':entity.idhv  }) }}">
+                                            <img u=image height="310" width="310" src="{{web_image('upload/' ~ entity.nit ~'/' ~ entity.image1).resize(310,310)}}" />
+                                        </a>
+                                    {%endif%}
+                                    {{ form_row(edit_form.image1)}}
+                                </td>
+                                <td>
+                                    {% if entity.image2 == '' %}
+
+                                        <img u=image height="210" width="210" src="{{ asset('upload/default/default.jpg')}}" />
+                                    {% else %}
+                                        <a href="{{ path('hojadevida_showfoto', { 'nit':entity.nit, 'foto': entity.image2,'id':entity.idhv  }) }}">
+                                            <img u=image height="310" width="310" src="{{web_image('upload/' ~ entity.nit ~'/' ~ entity.image2).resize(310,310)}}" />
+                                        </a>
+                                    {%endif%}
+                                    {{ form_row(edit_form.image2)}}
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                {{ form_errors(edit_form) }}
+                                <th>
+                                    {{ form_label(edit_form.Estado) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.Estado) }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+
+                                    {{ form_label(edit_form.nombre) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.nombre,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.apellido) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.apellido,{
+                                        'attr': {'class':'form-control'}
+                                     })
+                                    }}
+                                </td> 
+
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.telCasa) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.telCasa,{
+                                        'attr': {'class':'form-control'}
+                                     })
+                                    }}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.telCe) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.telCe,{
+                                        'attr': {'class':'form-control'}
+                                     })
+                                    }}
+                                </td>    
+
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.telefonoAdic) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.telefonoAdic,{
+                                        'attr': {'class':'form-control'}
+                                     })
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.fechaNac) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.fechaNac)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.tipoDocumento) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.tipoDocumento)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.nit) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.nit)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.sexo) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.sexo)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.lugarNacimiento) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.lugarNacimiento)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.ciudad) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.ciudad)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.dirCasa) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.dirCasa)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.emailPersonal) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.emailPersonal)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.estatura) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.estatura)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.piel) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.piel)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.ojos) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.ojos)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.pelo) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.pelo)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.peso) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.peso)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.experienciaTv) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.experienciaTv,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.deportes) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.deportes)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.habilidades) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.habilidades)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.idiomas) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.idiomas)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.maneja) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.maneja)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.entidadSalud) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.entidadSalud)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.tallaCamisa) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.tallaCamisa)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.tallaChaqueta) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.tallaChaqueta)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.tallaPantalon) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.tallaPantalon)
+                                    }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{ form_label(edit_form.tallaZapato) }}
+                                </th>
+                                <td colspan="4">
+                                    {{ form_row(edit_form.tallaZapato)
+                                    }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {{ form_end(edit_form) }}
+                    {{ form(edit_form) }}
+                </div>
+
+
+            </div>
+            <div class="panel-footer">
+                <a href="{{ path('hojadevida') }}">
+                    Back to the list
+                </a>
+                {{ form(delete_form) }}
+
+            </div>
+        </div>
+    {% endblock %}
+

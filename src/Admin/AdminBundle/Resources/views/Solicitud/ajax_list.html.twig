@@ -1,0 +1,91 @@
+{% for entity in entities %}
+    {%if (entity.fechainicio)%}
+        {% set number1 = entity.fechainicio|date("U") %}
+        {% set number2 = "now"|date("U") %}
+        {% set aux= ((  number1-number2)) %}
+        {%  set aux = aux/(60 * 60 * 24)%}
+    {%else%}
+        {%  set aux =9 %}
+    {% endif%}
+
+
+    <tr {%if aux|round==0%}class="danger"{%endif%}
+                           {%if aux|round>0 and aux|round<=1  %}class="warning"{%endif%}
+                           {%if aux|round>1 and aux|round<=8%}class="info"{%endif%}                  >
+        <td>{% if entity.image == '' %}
+            <a href="{{ path('solicitud_show', { 'id': entity.idSolicitud }) }}">
+                <center>
+                    <div class="block">
+                        <img  class="img-thumbnail" u=image height="auto" width="100%" src="{{web_image('upload/default/defaul_logo.png').resize(100,100)}}" /></a>
+                        <br>
+                        {% for usuariosolicitud in TotalUS %}
+                            {% if usuariosolicitud.idSolicitud.idSolicitud == entity.idSolicitud %}
+                                <label> {{usuariosolicitud.idUsuario.nombre}}</label>
+                            {%endif%}
+                        {% endfor %} 
+                    </div>
+                </center>
+
+            {% else %}
+                <a href="{{ path('solicitud_show', { 'id': entity.idSolicitud } )}}">
+                    <center>
+                        <div class="block">
+                            <img  class="img-thumbnail" u=image height="auto" width="100%" src="{{web_image('upload/solicitud/' ~ entity.idSolicitud ~'/' ~ entity.image).resize(100,100)}}" />
+                            <br>
+                            {% for usuariosolicitud in TotalUS %}
+                                {% if usuariosolicitud.idSolicitud.idSolicitud == entity.idSolicitud %}
+                                    <label> {{usuariosolicitud.idUsuario.nombre}}</label>
+                                {%endif%}
+                            {% endfor %} 
+                        </div>
+                </a>
+                {%endif%}
+            </td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.observaciones }}</td>
+            <td>{{ entity.estado }}</td>
+            <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.fechaupdate %}{{ entity.fechaupdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <a  class="btn btn-primary" style="display: block" href="{{ path('solicitud_show', { 'id': entity.idSolicitud }) }}">Mostrar</a>
+                {% if entity.estado == 'Tramite' %}
+                    {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) %}
+                        <a class="btn btn-primary" style="display: block" href="{{ path('solicitud_edit', { 'id': entity.idSolicitud }) }}">Editar</a>
+                        <a class="btn btn-primary" style="display: block" class="btn btn-primary" href="{{ path('solicitudcatalogo', { 'Solicitudid': entity.idSolicitud,'Estado':'Tramite' }) }}">Ver catalogo</a>
+                    {%endif%}
+                    {%if(is_granted("ROLE_CLIEN"))%}
+                    <a class="btn btn-primary" style="display: block" class="btn btn-primary" href="{{ path('solicitudcatalogo', { 'Solicitudid': entity.idSolicitud,'Estado':'Tramite' }) }}">Ver catalogo</a>
+                  
+                    {%endif%}
+                    
+                {% elseif entity.estado == 'Pendiente' %}
+                    {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) %}
+                        <a class="btn btn-primary" style="display: block" href="{{ path('solicitud_edit', { 'id': entity.idSolicitud }) }}">Editar</a>
+                        <a class="btn btn-primary" style="display: block" href="{{ path('solicitudcatalogo', { 'Solicitudid': entity.idSolicitud,'Estado':'Pendiente' }) }}">Responder</a>
+                    {%endif%}
+                {% elseif entity.estado == 'Aprobado' %}
+                    {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) %}
+                    {%endif%}
+                    <a class="btn btn-primary" style="display: block" href="{{ path('solicitudcatalogo', { 'Solicitudid': entity.idSolicitud,'Estado':'Aprobado' }) }}">Ver detalles</a>
+                {% endif %}
+
+
+            </td>
+
+        </tr>
+        {% endfor %}
+            {% include "AdminAdminBundle:Registro:paginacion.html.twig" %}
+
+            <script>
+                (function ($) {
+
+                    /* tooltip */
+                    $('a[data-toggle="tooltip"]').tooltip();
+
+                })(jQuery);
+            </script>
+
+
+
+
+

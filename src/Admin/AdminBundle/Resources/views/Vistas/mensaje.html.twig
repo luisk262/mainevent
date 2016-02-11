@@ -1,0 +1,64 @@
+{% extends 'AdminAdminBundle:Dashboard:base.html.twig' %}
+ {% block styles %}
+      <!-- Bootstrap Core CSS -->
+            <link href="{{asset('bundles/adminadmin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+
+<meta http-equiv="Refresh" content="10;url=http://www.aitv.com.co">
+<style>
+		body{
+		    height:100%;
+		}
+
+		body{
+		    height:100%;
+		    background: url({{asset('images/aitv-slide.jpg')}}) no-repeat center center fixed; 
+		    background-size:contain;
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+		}
+                .container {
+			vertical-align:middle;
+			opacity: 0.98;
+			padding: 50px;
+		
+</style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        {% if error != true %}
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="inscrito">
+
+                    <div class="alert alert-success" role="alert">
+
+                        <p align="center">
+                            ¡Felicidades, ya eres parte de la familia aiTV! Has sido añadido a nuestra base de datos satisfactoriamente. <img src="{{asset('images/logo-aitv_black.png')}}" alt="" width="140px">
+                            <br>
+                            En cuestión de segundos serás redirigido(a) a nuestro sitio web donde podrás encontrar mayor información. 	
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        {%else%}
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="inscrito">
+
+                    <div class="alert alert-warning" role="alert">
+
+                        <p align="center">
+                            ¡Espera! Ya teníamos inscrita tu hoja de vida en nuestro registro de datos. <img src="{{asset('images/logo-aitv_black.png')}}" alt="" width="140px">
+                            <br>
+                            No te preocupes, haces parte de nuestra familia. En cuestión de segundos serás redirigido(a) a nuestro sitio web donde podrás encontrar mayor información. 
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        {% endif %} 
+    </div>
+{% endblock  %}

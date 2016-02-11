@@ -1,0 +1,52 @@
+
+{% for entity in entities %}
+    <tr {% for Hoja in Hojasdevida %}
+        {% if Hoja.idHojadevida.idhv == entity.idhv|slice(0,10) %}
+           class="warning" 
+    {%endif%}
+    {%endfor%}
+         >
+
+        <td class="hidden-print">
+            <input type="checkbox" name="entities[]" value="{{entity.idhv}}">
+        </td>
+        <td>
+            {% if entity.image == '' %}
+                <a href="{{ path('hojadevida_show', { 'id': entity.idhv,'Estado':Estado }) }}">
+                    <img  class="img-thumbnail" u=image height="210" width="210" src="{{ asset('upload/default/default.jpg')}}" /></a>
+                {% else %}
+                <a href="{{ path('hojadevida_show', { 'id': entity.idhv,'Estado':Estado }) }}">
+                    <img  class="img-thumbnail" u=image height="210" width="210" src="{{web_image('upload/Hojasdevida/' ~ entity.nit ~'/' ~ entity.image).resize(210,210)}}" />
+                </a>
+            {%endif%}
+        </td>
+        <td>{{ entity.nombre }}</td>
+        <td>{{ entity.apellido }}</td>
+        <td>{{ entity.ciudad }}</td>
+        <td>{{ entity.emailPersonal }}</td>
+        <td>{{ entity.estatura }}</td>
+        <td>
+            {% set number1 = entity.fechaNac|date("Y") %}
+            {% set number2 = "now"|date("Y") %}
+            {% set aux= ((number2 - number1)) %}
+            {{aux}}
+        </td>
+        <td>{{ entity.telCe }}</td>
+
+        <td>
+            
+                <a class="btn btn-primary" style="display: block" href="{{ path('hojadevida_show', { 'id': entity.idhv,'Estado':Estado }) }}"><span class="fa fa-list"></span>Mostrar</a>
+            
+        </td>
+    </tr>
+{% endfor %}
+{% include "AdminAdminBundle:Registro:paginacion.html.twig" %}
+
+<script>
+    (function ($) {
+
+        /* tooltip */
+        $('a[data-toggle="tooltip"]').tooltip();
+
+    })(jQuery);
+</script>

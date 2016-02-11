@@ -1,0 +1,35 @@
+{% for entity in entities %}
+                            <tr>
+                                <td><a href="{{ path('admin_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                <td>{{ entity.nombre }}</td>
+                                <td>{{ entity.apellidos }}</td>
+                                <td>{{ entity.telefono }}</td>
+                                <td>{% if entity.fechaNaci %}{{ entity.fechaNaci|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('admin_user_show', { 'id': entity.id }) }}">show</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}">edit</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+{% endfor %}
+
+{% include "AdminAdminBundle:Registro:paginacion.html.twig" %}
+
+<script>
+    (function ($) {
+
+        /* tooltip */
+        $('a[data-toggle="tooltip"]').tooltip();
+
+    })(jQuery);
+</script>
+
+
+
+
+

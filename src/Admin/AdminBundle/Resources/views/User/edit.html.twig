@@ -1,0 +1,22 @@
+{% extends 'AdminAdminBundle:Dashboard:tables.html.twig' %}
+{% block nombreformulario %}Editar {%endblock%}
+{% block nombretabla %}
+    {% if is_granted("ROLE_ADMIN")%}
+        <div class="caption">
+            <strong>Editar</strong> 
+        </div>
+    {%endif%}
+{%endblock%}
+{%block tabla %}
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_user') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

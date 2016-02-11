@@ -1,0 +1,75 @@
+<?php
+
+namespace Admin\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuario
+ *
+ * @ORM\Table(name="usuario")
+ * @ORM\Entity
+ */
+class Usuario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Usuario", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idUsuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nombre", type="string", length=100, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Apellidos", type="string", length=100, nullable=true)
+     */
+    private $apellidos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Contrasenia", type="string", length=250, nullable=false)
+     */
+    private $contrasenia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Telefono", type="string", length=100, nullable=true)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Correo", type="string", length=100, nullable=true)
+     */
+    private $correo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Fecha_Naci", type="date", nullable=true)
+     */
+    private $fechaNaci;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Role", type="string", length=100, nullable=false)
+     */
+    private $role;
+
+
+}
+

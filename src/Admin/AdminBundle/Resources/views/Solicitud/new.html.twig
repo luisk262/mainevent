@@ -1,0 +1,44 @@
+{% extends 'AdminAdminBundle:Dashboard:base.html.twig' %}
+{% block Contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Nuevo</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                   Nueva Solicitud
+                </div>
+                <div class="panel-body">
+                    {{ form(form) }}
+                    </div>
+                <div class="panel-footer">
+           <a class="btn btn-primary btn-block" href="{{ path('solicitud',{ 'estado': 'Pendiente' }) }}">
+           Ir a lista
+        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javasctipt %}
+    <!-- jQuery -->
+    <script src="{{asset('bundles/adminadmin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{asset('bundles/adminadmin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{asset('bundles/adminadmin/bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
+
+
+    <!-- DataTables JavaScript -->
+    <script src="{{asset('bundles/adminadmin/dist/js/sb-admin-2.js')}}"></script>
+   
+{%endblock%}
+
+
+
+

@@ -1,0 +1,1082 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {% if is_mobile() %}               
+        <link rel="stylesheet" href="{{asset('mobile/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('mobile/css/css/styleFormSlider.min.css')}}" type="text/css">
+    {% elseif is_tablet() %}
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/css/styleFormSlider.min.css')}}" type="text/css">
+
+    {% elseif is_full_view() or is_not_mobile_view() %}
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/css/styleFormSlider.min.css')}}" type="text/css">
+
+    {% endif %}
+    <script type="text/javascript" src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
+    <script>
+        $('document').ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                var target = this.hash;
+                var $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+
+    </script>
+{% endblock %}
+{% block title %}Registro{% endblock %}
+{% block body %}
+    {{ form_start(form,{'attr': {'id': 'Formulario_Registro'}})}}
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="¨#">
+                    <img src="{{web_image('images/logo-aitv_white.png').resize(120,'')}}" alt="" width="120px">
+
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="paginaPrincipal">
+            <p align="center"><span>BIENVENIDO A AITV</span> <br>
+            <hr id="uno">
+            <hr id="dos">
+            <hr id="tres">
+            </p>
+            <div id="botonPrincipal">
+                <p align="center">
+                    <a href="#carousel-example-generic">
+                        <button class="btn">
+                            EMPEZAR AHORA
+                        </button>
+                    </a>
+                </p>
+            </div>	
+
+            <!--</div>-->		
+        </div>
+    </div>
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <!--<ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+        </ol>-->
+        <!-- Wrapper for slides -->
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="full_verde">
+                        <div id="texto">
+                            <p align="center">
+                                Tomar <span>un poco de tu tiempo ahora</span> rellenando <br> 
+                                este breve formulario te puede <br>
+                                reportar muchos momentos de alegría en el <span>futuro
+                                    brillando en la TV</span> <br>
+
+                                Solo vas a necesitar <span>tus datos personales</span> <br>
+                                y tener a mano <span>3 fotografías</span> que deberás adjuntar.
+                                <br>Los menores de edad <span>No se pueden registrar a travez de este medio. </span><br>Tendran 
+                                que realizar un proceso de inscripcion<br> ante la agencia y el ministerio de trabajo,<br> 
+                                para mas informacion comunicate al <br>conmutador <span>3099734 ext 103</span>. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-caption">
+                </div>
+                {% if is_mobile() %}
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                    <!-- Controls ··························································································································.. -->
+                    <div  id="anteriorSiguiente">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="container"> 
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="">
+                                            <a class="btn-default" href="#carousel-example-generic" role="button" data-slide="next" id="siguiente"><!--right carousel-control-->
+                                                <span class="siguiente" aria-hidden="true"><button class="btn">SIGUIENTE</button></span><!--glyphicon glyphicon-chevron-right-->
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div> 
+                                    </div>    
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <!-- END Controls ·························································································································· -->
+
+                {%endif%}
+
+
+            </div>
+            <!--===================================================================================================================================-->
+
+            <!--===================================================================================================================================-->
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="full_blanco">
+                        <div class="row">
+                            <div class="container">                               
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="uno">
+                                    <h1 id="verde">1. INFORMACIÓN PERSONAL</h1>
+                                    <div id="Comentarios" style="color:#00A6A8"></div>
+                                    <div class="col-md-6">
+                                        {{ form_widget(form.nombre,{
+                                        'attr': {'class':'form-control','placeholder':'Nombre*'}
+                                     })}}
+                                    </div> 
+                                    <div class="col-md-6">
+                                        {{form_widget(form.apellido,{
+                                        'attr': {'class':'form-control','placeholder':'Apellido*'}
+                                     })
+                                        }}
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <p>* Fecha de nacimiento</p>
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="col-xs-4 col-sm-4">
+                                            {{ form_widget(form.fechaNac.year,{
+                                        'attr': {'class':'form-control'}
+                                     })
+                                            }}
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4">
+                                            {{ form_widget(form.fechaNac.month,{
+                                        'attr': {'class':'form-control'}
+                                     })
+                                            }}
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4">
+                                            {{ form_widget(form.fechaNac.day,{
+                                        'attr': {'class':'form-control'}
+                                     })
+                                            }}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    {{ form_widget(form.telCe,{
+                                        'attr': {'class':'form-control','placeholder':'* Telefono Celular'}
+                                     })
+                                    }}
+                                    <br>
+                                    {{form_widget(form.telefonoAdic,{
+                                        'attr': {'class':'form-control','placeholder':'Whatsapp (opcional)'}
+                                     }) }}
+                                    <br>
+                                    {{ form_widget(form.telCasa,{
+                                        'attr': {'class':'form-control','placeholder':'Telefono Fijo (opcional)'}
+                                     })
+                                    }}
+                                    <hr>
+                                    {{ form_widget(form.tipoDocumento,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    {{ form_widget(form.nit,{
+                                        'attr': {'class':'form-control','placeholder':'* Documento'}
+
+                                     })
+                                    }}	
+                                    <hr>
+                                    <br>
+                                    <br>
+                                </div>
+                                {% if is_full_view() or is_not_mobile_view() or is_tablet() %}
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="uno_2">
+                                        <h1 id="verde">1.2. ELIGE TUS 3 MEJORES FOTOS </h1> 
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 colo-lg-12" id="botones">
+                                                <p>El tamaño de la imagen no debe ser superior a 1mb</p>
+                                                <ul>
+                                                    <li>Necesitamos una foto de tu rostro
+                                                        {{form_widget(form.image,{
+                                       'attr': {'accept':'image/x-png, image/gif, image/jpeg','id':'foto1','onchange':'Validarimagen(this);'}
+                                     })}} </li>
+                                                    <li><p align="right"><img src="{{asset('images/aspirante/cara.png')}}" alt="" width="40px"></p></li> 
+                                                    <hr>
+                                                    <li>Una foto en plano americano
+                                                        {{ form_widget(form.image1,{
+                                        'attr': {'accept':'image/x-png, image/gif, image/jpeg','id':'foto2','onchange':'Validarimagen(this);'}
+                                     })}}</li>
+                                                    <li><p align="right"><img src="{{asset('images/aspirante/medio.png')}}" alt="" width="30px"></p></li>
+                                                    <hr>
+                                                    <li>Una foto completa de tu cuerpo</li>{{ form_widget(form.image2,{
+                                      'attr': {'accept':'image/x-png, image/gif, image/jpeg','id':'foto3','onchange':'Validarimagen(this);'}
+                                     })}}    
+                                                    <li><p align="right"><img src="{{asset('images/aspirante/completo.png')}}" alt="" width="30px"></p></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {%endif%}
+                            </div>
+                        </div>                 
+                    </div>    
+                </div>
+                <div class="carousel-caption">
+                </div>
+                {% if is_mobile() %}
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" onclick="return Comprobar1_mobile();" >
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                    <!-- Controls ··························································································································.. -->
+                    <div  id="anteriorSiguiente">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="container"> 
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="">
+                                            <a class="btn-default" href="#carousel-example-generic" role="button"  ><!--right carousel-control-->
+                                                <span class="siguiente" aria-hidden="true"><button  onclick="return Comprobar1();" class="btn">SIGUIENTE</button></span><!--glyphicon glyphicon-chevron-right-->
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div> 
+                                    </div>    
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- END Controls ·························································································································· -->
+                {%endif%}    
+            </div>  
+
+            <!--===================================================================================================================================-->
+
+
+            <!--===================================================================================================================================-->
+            {%if is_mobile()%}
+                <div class="item">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="full_blanco">
+                            <div class="row">
+                                <div class="container"> 
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="uno_2">
+                                        <h1 id="verde">1.2. ELIGE TUS 3 MEJORES FOTOS </h1>
+                                        <div id="Comentariosaux" style="color:#00A6A8"></div>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 colo-lg-12" id="botones">
+                                                <p>El tamaño de la imagen no debe ser superior a 1mb</p>
+                                                <ul>
+                                                    <li>Necesitamos una foto de tu rostro
+                                                        {{form_widget(form.image,{
+                                       'attr': {'accept':'image/x-png, image/gif, image/jpeg','id':'foto1','onchange':'Validarimagen(this);'}
+                                     })}} </li>
+                                                    <li><p align="right"><img src="{{asset('images/aspirante/cara.png')}}" alt="" width="40px"></p></li> 
+                                                    <hr>
+                                                    <li>Una foto en plano americano
+                                                        {{ form_widget(form.image1,{
+                                        'attr': {'accept':'image/x-png, image/gif, image/jpeg','id':'foto2','onchange':'Validarimagen(this);'}
+                                     })}}</li>
+                                                    <li><p align="right"><img src="{{asset('images/aspirante/medio.png')}}" alt="" width="30px"></p></li>
+                                                    <hr>
+                                                    <li>Una foto completa de tu cuerpo</li>{{ form_widget(form.image2,{
+                                      'attr': {'accept':'image/x-png, image/gif, image/jpeg','id':'foto3','onchange':'Validarimagen(this);'}
+                                     })}}    
+                                                    <li><p align="right"><img src="{{asset('images/aspirante/completo.png')}}" alt="" width="30px"></p></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="carousel-caption">
+                    </div>
+                                                  <a class="right carousel-control" href="#carousel-example-generic" role="button" onclick="return Comprobar1_mobile_aux();" >
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            {%endif%}
+            <!--===================================================================================================================================-->
+            <!--===================================================================================================================================-->
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="full_verde">
+                        <div class="row">
+                            <div class="container">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="dos">
+                                    <h1 id="verde">2. CUÉNTANOS MÁS SOBRE TI</h1>
+                                    <div id="Comentarios2" style="color:yellow"></div>
+
+                                    {{ form_widget(form.sexo,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br>
+                                    {{ form_widget(form.lugarNacimiento,{
+                                        'attr': {'class':'form-control','placeholder':'Lugar de nacimineto(opcional)'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br>
+                                    {{ form_widget(form.ciudad,{
+                                        'attr': {'class':'form-control','placeholder':'* Ciudad de recidencia'}
+
+                                     })
+                                    }}                            <br>
+                                    <br>
+                                    {{ form_widget(form.dirCasa,{
+                                        'attr': {'class':'form-control','placeholder':'Dirección (opcional)'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br>
+                                    {{ form_widget(form.emailPersonal,{
+                                        'attr': {'class':'form-control','placeholder':'* Correo electronico'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="carousel-caption">
+                </div>
+                {% if is_mobile() %}
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" onclick="return Comprobar2();">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                    <!-- Controls ··························································································································.. -->
+                    <div  id="anteriorSiguiente">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="container"> 
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="">
+                                            <a class="btn-default" href="#carousel-example-generic" role="button"  id="siguiente"><!--right carousel-control-->
+                                                <span class="siguiente" aria-hidden="true"><button onclick="return Comprobar2();" class="btn">SIGUIENTE</button></span><!--glyphicon glyphicon-chevron-right-->
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div> 
+                                    </div>    
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- END Controls ·························································································································· -->
+                {%endif%}
+            </div>  
+
+
+            <!--===================================================================================================================================-->
+
+
+
+
+
+            <!--===================================================================================================================================-->
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="full_blanco">
+                        <div class="row">
+                            <div class="container">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="tres">
+                                    <h1 id="verde">3. CUÉNTANOS ALGO MAS</h1>
+                                    <div id="Comentarios3" style="color:#00A6A8"></div>
+
+                                    {{ form_widget(form.estatura,{
+                                        'attr': {'class':'form-control','placeholder':'* Estatura'}
+                                     })
+                                    }}
+
+                                    Ejemplo: (1.68) sin letras. No colocar (1.68cm)(1.68mt) ya que el sistema no realizará el registro.
+                                    <br>
+                                    <br>
+
+
+
+
+                                    {{ form_widget(form.peso,{
+                                        'attr': {'class':'form-control','placeholder':'* Peso'}
+
+                                     })
+                                    }}
+                                    Ejemplo: (68) sin letras. No colocar (68kg) ya que el sistema no realizará el registro.
+                                    <br>
+                                    <br>
+
+                                    {{ form_widget(form.idiomas,{
+                                        'attr': {'class':'form-control','placeholder':'Idiomas (Opcional)'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br>
+                                    Conduce
+                                    {{ form_widget(form.maneja,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br>
+                                    {{ form_widget(form.entidadSalud,{
+                                        'attr': {'class':'form-control','placeholder':'Enditad de salud(opcional)'}
+
+                                     })
+                                    }}
+                                </div>
+                            </div>    
+                        </div>
+                    </div>  
+                </div>
+                <div class="carousel-caption">
+                </div>
+
+                {% if is_mobile() %}
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" onclick="return Comprobar3();">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                    <!-- Controls ··························································································································.. -->
+                    <div  id="anteriorSiguiente">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="container"> 
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="">
+                                            <a class="btn-default" href="#carousel-example-generic" role="button"  id="siguiente"><!--right carousel-control-->
+                                                <span class="siguiente" aria-hidden="true"><button onclick="return Comprobar3();" class="btn">SIGUIENTE</button></span><!--glyphicon glyphicon-chevron-right-->
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div> 
+                                    </div>    
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- END Controls ·························································································································· -->
+                {%endif%}
+            </div>
+            <!--===================================================================================================================================-->
+
+
+
+
+
+            <!--===================================================================================================================================-->
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="full_verde">
+                        <div class="row">
+                            <div class="container">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="cuatro">
+
+                                    <h1 id="verde">4. TU FUTURO BRILLANTE EN LA TV ESTÁ MÁS CERCA, SOLO TE FALTAN ALGUNOS CAMPOS</h1>
+                                    <div id="Comentarios4" style="color:yellow"></div>
+
+                                    <a>* Talla camisa</a>
+                                    {{form_widget(form.tallaCamisa,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+
+                                    <a>* Talla pantalon</a>
+                                    {{ form_widget(form.tallaPantalon,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <a>* Talla zapato</a>
+                                    {{ form_widget(form.tallaZapato,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <a>* Talla chaqueta</a>
+                                    {{ form_widget(form.tallaChaqueta,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+
+                                    <a>* Piel</a>
+                                    {{ form_widget(form.piel,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <a>* Ojos</a>
+                                    {{ form_widget(form.ojos,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <a>* Cabello</a>
+                                    {{ form_widget(form.pelo,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br> 
+                                </div>
+                            </div>    
+                        </div>
+                    </div>  
+                </div>
+                <div class="carousel-caption">
+                </div>
+                {% if is_mobile() %}
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" onclick="return Comprobar4();">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                    <!-- Controls ··························································································································.. -->
+                    <div  id="anteriorSiguiente">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="container">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="">
+                                            <a class="btn-default" href="#carousel-example-generic" role="button" id="siguiente"><!--right carousel-control-->
+                                                <span class="siguiente" aria-hidden="true"><button class="btn" onclick="return Comprobar4();">SIGUIENTE</button></span><!--glyphicon glyphicon-chevron-right-->
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div> 
+                                    </div>    
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- END Controls ·························································································································· -->
+                {%endif%}
+            </div>
+            <!--===================================================================================================================================-->
+
+
+
+
+
+            <!--===================================================================================================================================-->
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="full_blanco">
+                        <div class="row">
+                            <div class="container">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="cinco">
+
+                                    <h1 id="verde">5. ¡YA ACABAMOS!</h1>
+                                    <div id="Comentarios5" style="color:#00A6A8"></div>
+
+                                    <p>Experiencia en tv</p>
+                                    {{ form_widget(form.experienciaTv,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}                                        <br>
+                                    <br>
+                                    <p>Deportes</p>
+                                    {{ form_widget(form.deportes,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+                                    <br>
+                                    <br>
+                                    <p>Habilidades</p>
+                                    {{ form_widget(form.habilidades,{
+                                        'attr': {'class':'form-control'}
+
+                                     })
+                                    }}
+
+                                    <hr>
+                                    <!--<div class="terminos">	
+                                    <!-- Button trigger modal -->
+                                    <!--<a data-toggle="modal" data-target="#myModal">
+                                      <p>Leer términos y condiciones</p>
+                                    </a>
+                                    
+                                    <!--?php include'inc/terminos.php'; ?>	
+                    </div>-->
+
+                                    Al hacer clic en "REGISTRARME!", aceptas las 
+                                    <a href="{{path('terminos')}}" target="_blank" id="terminos">Condiciones</a> y confirmas que las leíste.
+                                    <hr>
+                                    {{ form_row(form.submit, { 'label': 'Registrarme','attr': {'class':'btn btn-primary'}}) }}
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-caption">
+                </div>
+            </div>
+
+            <!--===================================================================================================================================-->
+
+        </div>
+        <style>
+            #terminos {
+                color: #00A6A8;
+            }
+            {% if is_mobile() %}
+                #intro {
+                    padding: 100px;
+                }
+
+                #carousel-example-generic #examinar {
+                    width: 100%;
+                    /*background-image: url('images/banner.png');*/
+                    background-color: rgba(157, 157, 157, 0.31);
+                }
+                p {
+                    font-size: 27px;
+                }
+                a {
+                    font-size: 27px;
+                }
+            {% endif %}
+        </style>
+
+    </div>
+    {{ form_end(form) }}
+    <footer>
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p id="texto">AITV Es una empresa del grupo Main Event Producciones Ltda.</p>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p align="center">
+                    <a href="" target="_blank"><img {% if is_mobile() %}
+                            src="{{web_image('images/logo_mep_l_outlined_white.png').resize(250,'')}}" 
+                            {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                                src="{{web_image('images/logo_mep_l_outlined_white.png').resize(150,'')}}"
+                                {%endif%}
+                                    ></a>
+                            <a href="" target="_blank"><img 
+                                    {% if is_mobile() %}
+                                        src="{{web_image('images/aliveHdw_logoWhite.png').resize(250,'')}}" 
+                                    {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                                        src="{{web_image('images/aliveHdw_logoWhite.png').resize(150,'')}}"
+                                    {%endif%}
+                                    ></a>
+                            <a href="" target="_blank"><img 
+                                    {% if is_mobile() %}
+                                        src="{{web_image('images/mepplay_logo_White.png').resize(250,'')}}" 
+                                    {% elseif is_full_view() or is_not_mobile_view() or is_tablet() %}
+                                        src="{{web_image('images/mepplay_logo_White.png').resize(150,'')}}"
+                                    {%endif%}
+                                    ></a>
+                        </p>
+                    </div>
+
+                </div>
+            </footer>
+            {% endblock %}
+                {% block javascripts %}
+                    <script type="text/javascript" src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
+                    <script src="{{asset('js/bootstrap.js')}}" type="text/javascript"></script>
+
+                    <script type="text/javascript">
+                                                    function Comprobar1(formulario)
+                                                    {
+                                                        var nombre = document.getElementById('admin_adminbundle_hojadevida_nombre').value;
+                                                        var apellido = document.getElementById('admin_adminbundle_hojadevida_apellido').value;
+                                                        var anio = document.getElementById("admin_adminbundle_hojadevida_fechaNac_year").selectedIndex;
+                                                        var mes = document.getElementById("admin_adminbundle_hojadevida_fechaNac_month").selectedIndex;
+                                                        var dia = document.getElementById("admin_adminbundle_hojadevida_fechaNac_day").selectedIndex;
+                                                        var telCe = document.getElementById('admin_adminbundle_hojadevida_telCe').value;
+                                                        var td = document.getElementById("admin_adminbundle_hojadevida_tipoDocumento").selectedIndex;
+                                                        var nit = document.getElementById('admin_adminbundle_hojadevida_nit').value;
+                                                        var img = document.getElementById('admin_adminbundle_hojadevida_image').value;
+                                                        var img1 = document.getElementById('admin_adminbundle_hojadevida_image1').value;
+                                                        var img2 = document.getElementById('admin_adminbundle_hojadevida_image2').value;
+
+                                                        var nuevo_parrafo = document.createElement('p');
+                                                        nuevo_parrafo.appendChild(document.createTextNode(''));
+                                                        document.getElementById("Comentarios").appendChild(nuevo_parrafo);
+                                                        if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre))
+                                                        {
+                                                            // Creamos el nuevo párrafo
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('No escribiste tu nombre'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+
+                                                        if (apellido == null || apellido.length == 0 || /^\s+$/.test(apellido))
+                                                        {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('No escribiste tu Apellido'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (anio == null || anio == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el año de nacimiento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+
+                                                        }
+                                                        if (mes == null || mes == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el mes de nacimiento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (dia == null || dia == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el dia de nacimiento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (!(/^\d{10}$/.test(telCe))) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el numero de celular'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (td == null || td == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el tipo de documento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (nit == null || nit.length == 0 || /^\s+$/.test(nit))
+                                                        {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el numero de documento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (img == '' || img1 == '' || img2 == '') {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Debe escojer las 3 imagenes'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+
+                                                        $('#carousel-example-generic').carousel('next');
+                                                        return true;
+
+                                                    }
+                                                    function Comprobar1_mobile(){
+                                                        var nombre = document.getElementById('admin_adminbundle_hojadevida_nombre').value;
+                                                        var apellido = document.getElementById('admin_adminbundle_hojadevida_apellido').value;
+                                                        var anio = document.getElementById("admin_adminbundle_hojadevida_fechaNac_year").selectedIndex;
+                                                        var mes = document.getElementById("admin_adminbundle_hojadevida_fechaNac_month").selectedIndex;
+                                                        var dia = document.getElementById("admin_adminbundle_hojadevida_fechaNac_day").selectedIndex;
+                                                        var telCe = document.getElementById('admin_adminbundle_hojadevida_telCe').value;
+                                                        var td = document.getElementById("admin_adminbundle_hojadevida_tipoDocumento").selectedIndex;
+                                                        var nit = document.getElementById('admin_adminbundle_hojadevida_nit').value;
+                                                        var nuevo_parrafo = document.createElement('p');
+                                                        nuevo_parrafo.appendChild(document.createTextNode(''));
+                                                        document.getElementById("Comentarios").appendChild(nuevo_parrafo);
+                                                        if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre))
+                                                        {
+                                                            // Creamos el nuevo párrafo
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('No escribiste tu nombre'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+
+                                                        if (apellido == null || apellido.length == 0 || /^\s+$/.test(apellido))
+                                                        {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('No escribiste tu Apellido'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (anio == null || anio == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el año de nacimiento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+
+                                                        }
+                                                        if (mes == null || mes == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el mes de nacimiento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (dia == null || dia == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el dia de nacimiento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (!(/^\d{10}$/.test(telCe))) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el numero de celular'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (td == null || td == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el tipo de documento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (nit == null || nit.length == 0 || /^\s+$/.test(nit))
+                                                        {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el numero de documento'));
+                                                            var segundo_p = document.getElementById('Comentarios').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                         $('#carousel-example-generic').carousel('next');
+                                                        return true;
+                                                    }
+                                                    function Comprobar1_mobile_aux(){
+                                                        
+                                                        var img = document.getElementById('admin_adminbundle_hojadevida_image').value;
+                                                        var img1 = document.getElementById('admin_adminbundle_hojadevida_image1').value;
+                                                        var img2 = document.getElementById('admin_adminbundle_hojadevida_image2').value;
+
+                                                        var nuevo_parrafo = document.createElement('p');
+                                                        nuevo_parrafo.appendChild(document.createTextNode(''));
+                                                        document.getElementById("Comentariosaux").appendChild(nuevo_parrafo);
+                                                        if (img == '' || img1 == '' || img2 == '') {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Debe escojer las 3 imagenes'));
+                                                            var segundo_p = document.getElementById('Comentariosaux').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentariosaux').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+
+                                                        $('#carousel-example-generic').carousel('next');
+                                                        return true;
+
+                                                    }
+                                                    function Comprobar2(formulario)
+                                                    {
+                                                        var genero = document.getElementById('admin_adminbundle_hojadevida_sexo').value;
+                                                        var ciudad = document.getElementById('admin_adminbundle_hojadevida_ciudad').value;
+                                                        var Email = document.getElementById('admin_adminbundle_hojadevida_emailPersonal').value;
+                                                        var nuevo_parrafo = document.createElement('p');
+                                                        nuevo_parrafo.appendChild(document.createTextNode(''));
+                                                        document.getElementById("Comentarios2").appendChild(nuevo_parrafo);
+
+                                                        if (genero == null || genero == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Debe seleccionar el genero'));
+                                                            var segundo_p = document.getElementById('Comentarios2').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios2').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (ciudad == null || ciudad.length == 0 || /^\s+$/.test(ciudad))
+                                                        {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique la ciudad de recidencia'));
+                                                            var segundo_p = document.getElementById('Comentarios2').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios2').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (!(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i.test(Email))) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique Email'));
+                                                            var segundo_p = document.getElementById('Comentarios2').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios2').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+
+                                                        }
+                                                        $('#carousel-example-generic').carousel('next');
+                                                        return true;
+
+                                                    }
+                                                    function Comprobar3(formulario) {
+                                                        var nuevo_parrafo = document.createElement('p');
+                                                        nuevo_parrafo.appendChild(document.createTextNode(''));
+                                                        document.getElementById("Comentarios3").appendChild(nuevo_parrafo);
+                                                        var estatura = document.getElementById("admin_adminbundle_hojadevida_estatura").value;
+                                                        var peso = document.getElementById("admin_adminbundle_hojadevida_peso").value;
+
+                                                        if (isNaN(estatura) || estatura.length == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique la estatura Ejemplo (1.68) no se admite 1,68'));
+                                                            var segundo_p = document.getElementById('Comentarios3').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios3').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (isNaN(peso) || peso.length == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique el peso'));
+                                                            var segundo_p = document.getElementById('Comentarios3').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios3').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        $('#carousel-example-generic').carousel('next');
+                                                        return false;
+                                                    }
+                                                    function Comprobar4(formulario)
+                                                    {
+                                                        var nuevo_parrafo = document.createElement('p');
+                                                        nuevo_parrafo.appendChild(document.createTextNode(''));
+                                                        document.getElementById("Comentarios4").appendChild(nuevo_parrafo);
+                                                        var tallaCamisa = document.getElementById("admin_adminbundle_hojadevida_tallaCamisa").selectedIndex;
+                                                        var tallaPantalon = document.getElementById("admin_adminbundle_hojadevida_tallaPantalon").selectedIndex;
+                                                        var tallaZapato = document.getElementById("admin_adminbundle_hojadevida_tallaZapato").selectedIndex;
+                                                        var tallaChaqueta = document.getElementById("admin_adminbundle_hojadevida_tallaChaqueta").selectedIndex;
+                                                        var hojadevida_piel = document.getElementById("admin_adminbundle_hojadevida_piel").selectedIndex;
+                                                        var hojadevida_ojos = document.getElementById("admin_adminbundle_hojadevida_ojos").selectedIndex;
+                                                        var hojadevida_pelo = document.getElementById("admin_adminbundle_hojadevida_pelo").selectedIndex;
+                                                        var verif = true;
+                                                        if (tallaCamisa == null || tallaCamisa == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique Talla de camisa'));
+                                                            var segundo_p = document.getElementById('Comentarios4').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios4').replaceChild(nuevo_parrafo, segundo_p);
+                                                            verif = false;
+                                                            return false;
+                                                        }
+                                                        if (tallaPantalon == null || tallaPantalon == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique Talla de pantalon'));
+                                                            var segundo_p = document.getElementById('Comentarios4').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios4').replaceChild(nuevo_parrafo, segundo_p);
+                                                            verif = false;
+                                                            return false;
+                                                        }
+                                                        if (tallaZapato == null || tallaZapato == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique Talla de Zapatos'));
+                                                            var segundo_p = document.getElementById('Comentarios4').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios4').replaceChild(nuevo_parrafo, segundo_p);
+                                                            verif = false;
+                                                            return false;
+                                                        }
+                                                        if (tallaChaqueta == null || tallaChaqueta == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique Talla de chaqueta'));
+                                                            var segundo_p = document.getElementById('Comentarios4').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios4').replaceChild(nuevo_parrafo, segundo_p);
+                                                            return false;
+                                                        }
+                                                        if (hojadevida_piel == null || hojadevida_piel == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique Color de piel'));
+                                                            var segundo_p = document.getElementById('Comentarios4').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios4').replaceChild(nuevo_parrafo, segundo_p);
+                                                            verif = false;
+                                                            return false;
+                                                        }
+                                                        if (hojadevida_ojos == null || hojadevida_ojos == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique color de ojos'));
+                                                            var segundo_p = document.getElementById('Comentarios4').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios4').replaceChild(nuevo_parrafo, segundo_p);
+                                                            verif = false;
+                                                            return false;
+                                                            
+                                                        }
+                                                        if (hojadevida_pelo == null || hojadevida_pelo == 0) {
+                                                            var nuevo_parrafo = document.createElement('p');
+                                                            nuevo_parrafo.appendChild(document.createTextNode('Verifique color de cabello'));
+                                                            var segundo_p = document.getElementById('Comentarios4').getElementsByTagName('p')[0];
+                                                            document.getElementById('Comentarios4').replaceChild(nuevo_parrafo, segundo_p);
+                                                            verif = false;
+                                                            return false;
+                                                        }
+                                                        if (verif == true) {
+                                                            $('#carousel-example-generic').carousel('next');
+                                                            return true;
+                                                        }
+                                                    }
+
+                                                    function validarRepetida() {
+                                                        var nombre = document.getElementById('#foto1').value;
+                                                        alert(nombre);
+                                                        var nombre = document.getElementById('#foto2').value;
+                                                        alert(nombre);
+                                                        var nombre = document.getElementById('#foto3').value;
+                                                        alert(nombre);
+                                                    }
+                                                    var aux = '';
+                                                    var aux1 = '';
+                                                    var aux2 = '';
+                                                    function Validarimagen(imagen) {
+                                                        var file = document.getElementById(imagen.id);
+                                                        if ((document.getElementById(imagen.id).value == window.aux1) ||
+                                                                (document.getElementById(imagen.id).value == window.aux2) ||
+                                                                (document.getElementById(imagen.id).value == window.aux)) {
+                                                            alert('La imagen no se puede repetir');
+                                                            document.getElementById(imagen.id).value = "";
+                                                        }
+                                                        window.aux = document.getElementById('admin_adminbundle_hojadevida_image').value;
+                                                        window.aux1 = document.getElementById('admin_adminbundle_hojadevida_image1').value;
+                                                        window.aux2 = document.getElementById('admin_adminbundle_hojadevida_image2').value;
+                                                        if (file.files[0].size != null) {
+                                                            if (file.files[0].size >= 1048576) {
+                                                                alert("Ojo! la imagen es demasiado grande. la imagen excede el peso admitido 1mb.")
+                                                                document.getElementById(imagen.id).value = "";
+                                                            }
+                                                            else {
+                                                                var e = imagen.value.substr(-3);
+                                                                if (e != "jpg" && e != "gif" && e != "png" && e != "JPG" && e != "GIF" && e != "PNG") {
+                                                                    alert('Seleccione una imagen valida');
+                                                                    document.getElementById(imagen.id).value = "";
+                                                                }
+                                                                else {
+                                                                }
+                                                            }
+                                                        }
+                                                        else {
+                                                            alert("Error! Seleccione una imagen.")
+                                                        }
+                                                    }
+                    </script>
+                {% endblock %}
+

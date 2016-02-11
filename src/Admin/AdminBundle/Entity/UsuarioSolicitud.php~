@@ -1,0 +1,46 @@
+<?php
+
+namespace Admin\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UsuarioSolicitud
+ *
+ * @ORM\Table(name="usuario_solicitud", indexes={@ORM\Index(name="Id_Solicitud", columns={"Id_Solicitud"}), @ORM\Index(name="Id_Usuario", columns={"Id_Usuario"})})
+ * @ORM\Entity
+ */
+class UsuarioSolicitud
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \Solicitud
+     *
+     * @ORM\ManyToOne(targetEntity="Solicitud")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Id_Solicitud", referencedColumnName="id_Solicitud")
+     * })
+     */
+    private $idSolicitud;
+
+    /**
+     * @var \FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Id_Usuario", referencedColumnName="id")
+     * })
+     */
+    private $idUsuario;
+
+
+}
+

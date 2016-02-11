@@ -1,0 +1,332 @@
+$blanco: white
+$verdeMarino: #00A6A8
+
+
+body
+	background-color: #00A6A8
+	width: 100%
+
+
+.navbar
+	height: 100px
+	background-color: $verdeMarino
+	border-color: #00A6A8
+	img
+		margin-top: -5px
+#paginaPrincipal
+	height: 1000px
+	p
+		margin-top: 300px
+		font-size: 30px
+		color: white
+	span
+		color: #CED500
+	#uno
+		margin-top: -15px
+		width: 3%
+		height: 3px
+		background-color: #CED500
+		border-color: #CED500
+	#dos
+		margin-top: -15px
+		width: 2%
+		height: 3px
+		background-color: rgba(206, 213, 0, 0.7)
+		border-color: rgba(206, 213, 0, 0.7)
+	#tres
+		margin-top: -15px
+		width: 1%
+		height: 3px
+		background-color: rgba(206, 213, 0, 0.4)
+		border-color: #rgba(206, 213, 0, 0.4)
+	
+	#botonPrincipal
+		margin-top: -200px
+	.btn
+		position: relative
+		z-index: 999
+		padding-left: 30px
+		padding-right: 30px
+		background-color: transparent
+		border-color: $blanco
+		&:hover
+			background-color: $blanco
+	a
+		color: white
+		text-decoration: none
+		&:hover 
+			color: $verdeMarino
+
+#carousel-example-generic
+	position: relative
+	z-index: 1000000000
+	background-color: #FFF
+	margin-top: 10px
+	#texto
+		margin-top: 250px
+		p
+			color: white
+			font-size: 25px
+		span
+			color: #CED500
+			font-size: 25px
+	
+	.carousel-indicators 
+		li
+			border: 3px solid #000
+	.carousel-indicators 
+		.active
+			background-color: transparent
+	.siguiente
+		margin-top: -147px
+		background-color: transparent
+		border-color: black
+		padding: 10px
+		border-radius: 10px
+		margin-right: 0px
+		float: right
+		button
+			margin-top: -60px
+			background-color: transparent
+			border: 3px solid black
+	.anterior
+		margin-top: -80px
+		background-color: transparent
+		padding: 10px
+		border-radius: 10px
+		float: right
+		button
+			margin-top: -60px
+			background-color: transparent
+			border: 3px solid black
+	.carousel-control.right
+		background-image: linear-gradient(to right, transparent 0px, transparent 100%)
+	.carousel-control.left
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0px, transparent 100%)
+	#anterior
+		margin-top: 400px
+
+	#full_blanco
+		height: 900px
+		background-color: $blanco
+		padding: 50px
+		#uno, #tres, #cinco 
+			margin-top: 150px
+			h1
+				font-size: 20px
+		#uno_2
+			h1
+				margin-top: 170px	
+				font-size: 20px
+		#botones
+			ul
+				li
+					list-style: none
+					display: inline
+					img
+						margin-top: -50px
+
+
+	#botonRegistro
+		margin-top: 50px
+		.btn_registro
+			background-color: #00A6A8
+			border-color: #00A6A8
+			color: white
+			border-radius: 10px
+			padding: 10px
+			&hover
+				background-color: transparent
+				color: #00A6A8
+
+	#full_verde
+		height: 900px
+		background-color: $verdeMarino
+		padding: 50px
+		#dos, #cuatro, #seis
+			margin-top: 150px
+			h1
+				font-size: 20px
+			#verde
+				color: white
+		a
+			color: white
+			text-decoration: none
+	#nombreApellido
+		width: 40%
+		margin-right: 10px
+	#fechaNacimiento
+		width: 50%
+		margin-right: 10px
+	input
+		width: 100%
+	textarea
+		width: 100%
+		height: 70px 
+#fotos
+	img
+		margin-top: 20px
+
+
+
+footer
+	background-color: #212348
+	color: white
+	#texto
+		text-align: center
+		padding: 10px
+		margin-top: 20px
+	img
+		margin-top: 10px
+		padding: 20px
+	/*.carousel-inner
+		.carousel-control
+			.right
+				background-image: linear-gradient(to right, transparent 0px, transparent 100%)*/
+
+.modal-header 
+	min-height: 16.43px
+	padding: 15px
+	border-bottom: 1px solid #e5e5e5
+	margin-top: 75px
+	.modal-title 
+		margin-top: -43px
+	.close 
+		margin-top: -41px
+
+.modal-body 
+	position: relative
+	z-index: 99999
+	background-color: rgba(250, 235, 204, 0.2)
+.modal-backdrop.in 
+	opacity: 0.5
+	position: relative
+	z-index: 99999
+
+	.checkbox-inline 
+		list-style: none
+.modal-footer 
+	height: 65px
+
+#botonCerrar
+	color: white
+	background-color: #00A6A8
+	&:hover
+		color: #00A6A8
+		background-color: white
+		border: 3px solid #00A6A8
+
+
+			
+
+
+
+/*··@media querys························································································································*/
+/* Large desktops and laptops */
+@media (min-width: 1200px) 
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) 
+	
+	
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) 
+	body
+		.navbar
+		#carousel-example-generic
+			.carousel-indicators 
+			.carousel-indicators 
+				.active
+					background-color: transparent
+			.siguiente
+				button
+					margin-left: 150px
+					position: absolute
+			.anterior	
+				button
+					position: absolute
+			.carousel-control.right
+			.carousel-control.left
+			#anterior
+			.uno
+				height: 1200px
+			#full_blanco
+				background-color: $blanco
+				padding: 50px
+		#uno_2
+			margin-top: -100px
+			h1
+				margin-top: 0px	
+		#botones
+			margin-top: 0px
+
+			
+	
+/* Landscape phones and portrait tablets */
+@media (min-width: 481px) and (max-width: 767px)
+	body
+		.navbar
+		#carousel-example-generic
+			.carousel-indicators 
+			.carousel-indicators 
+				.active
+					background-color: transparent
+			.siguiente
+				button
+					margin-left: 400px
+					position: absolute
+			.anterior	
+				button
+					margin-left: -450px
+					position: absolute
+			.carousel-control.right
+			.carousel-control.left
+			#anterior
+			.uno
+				height: 1200px
+			#full_blanco
+				background-color: $blanco
+				padding: 50px
+		#uno_2
+			margin-top: -100px
+			h1
+				margin-top: 0px	
+		#botones
+			margin-top: 0px
+				
+			
+
+
+
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) 
+	body
+		.navbar
+		#carousel-example-generic
+			.carousel-indicators 
+			.carousel-indicators 
+				.active
+					background-color: transparent
+			.siguiente
+				button
+					margin-left: 250px
+					position: absolute
+			.anterior	
+				button
+					margin-left: -350px
+					position: absolute
+			.carousel-control.right
+			.carousel-control.left
+			#anterior
+			.uno
+				height: 1200px
+			#full_blanco
+				background-color: $blanco
+				padding: 50px
+		#uno_2
+			margin-top: -100px
+			h1
+				margin-top: 0px	
+		#botones
+			margin-top: 0px

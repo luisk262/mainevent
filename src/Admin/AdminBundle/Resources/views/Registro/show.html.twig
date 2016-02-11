@@ -1,0 +1,212 @@
+{% extends 'AdminAdminBundle:Dashboard:base.html.twig' %}
+{% block Contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">show</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Hoja de vida
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover">
+                        <tbody>
+                            <tr>
+                                <th>image</th>
+
+                                <td>
+                                    {% if entity.image == '' %}
+
+                                        <img u=image height="210" width="210" src="{{ asset('upload/default/default.jpg')}}" />
+                                    {% else %}
+                                        <a href="{{ path('hojadevida_showfoto', { 'nit':entity.nit, 'foto': entity.image,'id':entity.idhv  }) }}">
+                                            <img u=image height="310" width="310" src="{{web_image('upload/' ~ entity.nit ~'/' ~ entity.image).resize(310,310)}}" />
+                                        </a>
+                                    {%endif%}
+                                </td>
+                                <td>
+                                    {% if entity.image1 == '' %}
+
+                                        <img u=image height="210" width="210" src="{{ asset('upload/default/default.jpg')}}" />
+                                    {% else %}
+                                        <a href="{{ path('hojadevida_showfoto',{ 'nit':entity.nit, 'foto': entity.image1,'id':entity.idhv  }) }}">
+                                            <img u=image height="310" width="310" src="{{web_image('upload/' ~ entity.nit ~'/' ~ entity.image1).resize(310,310)}}" />
+                                        </a>
+                                    {%endif%}
+                                </td>
+                                <td>
+                                    {% if entity.image2 == '' %}
+
+                                        <img u=image height="210" width="210" src="{{ asset('upload/default/default.jpg')}}" />
+                                    {% else %}
+                                        <a href="{{ path('hojadevida_showfoto', { 'nit':entity.nit, 'foto': entity.image2,'id':entity.idhv  }) }}">
+                                            <img u=image height="310" width="310" src="{{web_image('upload/' ~ entity.nit ~'/' ~ entity.image2).resize(310,310)}}" />
+                                        </a>
+                                    {%endif%}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Idhv</th>
+                                <td>{{ entity.idhv }}</td>
+                            </tr>
+                            <tr>
+                                <th>Apellido</th>
+                                <td>{{ entity.apellido }}</td>
+                            </tr>
+                            <tr>
+                                <th>Ciudad</th>
+                                <td>{{ entity.ciudad }}</td>
+                            </tr>
+                            <tr>
+                                <th>Categoria</th>
+                                <td>{{ entity.categoria }}</td>
+                            </tr>
+                            <tr>
+                                <th>Dircasa</th>
+                                <td>{{ entity.dirCasa }}</td>
+                            </tr>
+                            <tr>
+                                <th>Emailpersonal</th>
+                                <td>{{ entity.emailPersonal }}</td>
+                            </tr>
+                            <tr>
+                                <th>Estatura</th>
+                                <td>{{ entity.estatura }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nit</th>
+                                <td>{{ entity.nit }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <td>{{ entity.nombre }}</td>
+                            </tr>
+                            <tr>
+                                <th>Telcasa</th>
+                                <td>{{ entity.telCasa }}</td>
+                            </tr>
+                            <tr>
+                                <th>Piel</th>
+                                <td>{{ entity.piel }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tipodocumento</th>
+                                <td>{{ entity.tipoDocumento }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sexo</th>
+                                <td>{{ entity.sexo }}</td>
+                            </tr>
+                            <tr>
+                                <th>Edad</th>
+                                <td>{{ entity.edad }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fechanac</th>
+                                <td>{{ entity.fechaNac|date('Y-m-d H:i:s') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Telce</th>
+                                <td>{{ entity.telCe }}</td>
+                            </tr>
+                            <tr>
+                                <th>Lugarnacimiento</th>
+                                <td>{{ entity.lugarNacimiento }}</td>
+                            </tr>
+                            <tr>
+                                <th>Ojos</th>
+                                <td>{{ entity.ojos }}</td>
+                            </tr>
+                            <tr>
+                                <th>Pelo</th>
+                                <td>{{ entity.pelo }}</td>
+                            </tr>
+                            <tr>
+                                <th>Peso</th>
+                                <td>{{ entity.peso }}</td>
+                            </tr>
+                            <tr>
+                                <th>Telefonoadic</th>
+                                <td>{{ entity.telefonoAdic }}</td>
+                            </tr>
+                            <tr>
+                                <th>Experienciatv</th>
+                                <td>{{ entity.experienciaTv }}</td>
+                            </tr>
+                            <tr>
+                                <th>Deportes</th>
+                                <td>{{ entity.deportes }}</td>
+                            </tr>
+                            <tr>
+                                <th>Habilidades</th>
+                                <td>{{ entity.habilidades }}</td>
+                            </tr>
+                            <tr>
+                                <th>Idiomas</th>
+                                <td>{{ entity.idiomas }}</td>
+                            </tr>
+                            <tr>
+                                <th>Maneja</th>
+                                <td>{{ entity.maneja }}</td>
+                            </tr>
+                            <tr>
+                                <th>Entidadsalud</th>
+                                <td>{{ entity.entidadSalud }}</td>
+                            </tr>
+                            <tr>
+                                <th>tallaCamisa</th>
+                                <td>{{ entity.tallaCamisa }}</td>
+                            </tr>
+                            <tr>
+                                <th>tallaChaqueta</th>
+                                <td>{{ entity.tallaChaqueta }}</td>
+                            </tr>
+                            <tr>
+                                <th>tallaPantalon</th>
+                                <td>{{ entity.tallaPantalon }}</td>
+                            </tr>
+                            <tr>
+                                <th>tallaZapato</th>
+                                <td>{{ entity.tallaZapato }}</td>
+                            </tr>
+                            <tr>
+                                <th>Dv</th>
+                                <td>{{ entity.dv }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fecha</th>
+                                <td>{{ entity.fecha|date('Y-m-d H:i:s') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fechaupdate</th>
+                                <td>{{ entity.fechaupdate|date('Y-m-d H:i:s') }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+
+                    <ul class="record_actions">
+                        <li>
+                            <a href="{{ path('hojadevida') }}">
+                                Back to the list
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('hojadevida_edit', { 'id': entity.idhv }) }}">
+                                Edit
+                            </a>
+                        </li>
+                        <li>{{ form(delete_form) }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

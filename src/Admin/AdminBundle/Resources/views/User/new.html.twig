@@ -1,0 +1,86 @@
+{% extends 'AdminAdminBundle:Dashboard:base.html.twig' %}
+
+{% block Contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Nuevo usuario</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                     {{ form_start(form) }}
+                     {{ form_row(form.username,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.nombre,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.apellidos,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.email,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.plainPassword.first,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                       {{ form_row(form.plainPassword.second,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.telefono,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.fechaNaci,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.roles,{
+                                    'attr': {'class':'form-control'}
+                                     })
+                        }}
+                        {{ form_row(form.enabled)
+                        }}
+                     <br>
+                        {{ form_row(form.submit, { 'label': 'Crear usuario','attr': {'class':'btn btn-default'}}) }}
+                        
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('admin_user') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block javasctipt %}
+    <!-- jQuery -->
+    <script src="{{asset('bundles/adminadmin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{asset('bundles/adminadmin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{asset('bundles/adminadmin/bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
+
+
+    <!-- DataTables JavaScript -->
+    <script src="{{asset('bundles/adminadmin/dist/js/sb-admin-2.js')}}"></script>
+    
+{%endblock%}

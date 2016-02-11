@@ -1,0 +1,424 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+/************************************************************** */
+/************************************************************** */
+body {
+  background-color: #00A6A8;
+  width: 100%; }
+  body input {
+    height: 100px; }
+
+.navbar {
+  height: 200px;
+  background-color: #00A6A8;
+  border-color: #00A6A8; }
+  .navbar img {
+    margin-top: 10px; }
+
+#paginaPrincipal {
+  height: 1000px; }
+  #paginaPrincipal p {
+    margin-top: 300px;
+    font-size: 100px;
+    color: white; }
+  #paginaPrincipal span {
+    color: #CED500; }
+  #paginaPrincipal #uno {
+    margin-top: -15px;
+    width: 3%;
+    height: 3px;
+    background-color: #CED500;
+    border-color: #CED500; }
+  #paginaPrincipal #dos {
+    margin-top: -15px;
+    width: 2%;
+    height: 3px;
+    background-color: rgba(206, 213, 0, 0.7);
+    border-color: rgba(206, 213, 0, 0.7); }
+  #paginaPrincipal #tres {
+    margin-top: -15px;
+    width: 1%;
+    height: 3px;
+    background-color: rgba(206, 213, 0, 0.4);
+    border-color: #rgba 206, 213, 0, 0.4; }
+  #paginaPrincipal #botonPrincipal {
+    margin-top: -200px; }
+  #paginaPrincipal .btn {
+    width: 400px;
+    height: 80px;
+    position: relative;
+    z-index: 999;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: transparent;
+    border-color: white; }
+    #paginaPrincipal .btn:hover {
+      background-color: white; }
+  #paginaPrincipal a {
+    font-size: 30px;
+    color: white;
+    text-decoration: none; }
+    #paginaPrincipal a:hover {
+      color: #00A6A8; }
+
+#carousel-example-generic {
+  position: relative;
+  z-index: 0;
+  background-color: #FFF;
+  margin-top: 1000px; }
+  #carousel-example-generic input {
+    font-size: 45px; }
+  #carousel-example-generic #texto {
+    margin-top: 250px; }
+    #carousel-example-generic #texto p {
+      color: white;
+      font-size: 40px; }
+    #carousel-example-generic #texto span {
+      color: #CED500;
+      font-size: 25px; }
+  #carousel-example-generic .carousel-indicators li {
+    border: 3px solid #000; }
+  #carousel-example-generic .carousel-indicators .active {
+    background-color: transparent; }
+  #carousel-example-generic .siguiente {
+    float: right; }
+    #carousel-example-generic .siguiente button {
+      margin-top: -60px;
+      background-color: transparent;
+      border: 3px solid black; }
+  #carousel-example-generic .anterior {
+    float: left; }
+    #carousel-example-generic .anterior button {
+      margin-top: -60px;
+      background-color: transparent;
+      border: 3px solid black; }
+  #carousel-example-generic .carousel-control.right {
+    background-image: linear-gradient(to right, transparent 0px, transparent 100%); }
+    #carousel-example-generic .carousel-control.right .glyphicon-chevron-right {
+      font-size: 100px; }
+    #carousel-example-generic .carousel-control.right .glyphicon-chevron-right:before {
+      margin-left: 0px;
+      color: rgba(0, 0, 0, 0.63); }
+    #carousel-example-generic .carousel-control.right .glyphicon-chevron-right:before {
+      color: #00FCFF; }
+  #carousel-example-generic .carousel-control.left {
+    background-image: linear-gradient(to right, transparent 0px, transparent 100%); }
+    #carousel-example-generic .carousel-control.left .glyphicon-chevron-left {
+      font-size: 100px; }
+    #carousel-example-generic .carousel-control.left .glyphicon-chevron-left:before {
+      margin-left: -80px;
+      color: rgba(0, 0, 0, 0.63); }
+  #carousel-example-generic #anterior {
+    margin-top: 400px; }
+  #carousel-example-generic #full_blanco {
+    height: 2000px;
+    background-color: white;
+    padding: 50px; }
+    #carousel-example-generic #full_blanco #uno, #carousel-example-generic #full_blanco #tres, #carousel-example-generic #full_blanco #cinco {
+      margin-top: 150px; }
+      #carousel-example-generic #full_blanco #uno h1, #carousel-example-generic #full_blanco #tres h1, #carousel-example-generic #full_blanco #cinco h1 {
+        margin-top: 170px;
+        font-size: 50px; }
+    #carousel-example-generic #full_blanco #uno_2 h1 {
+      margin-top: 320px;
+      font-size: 50px; }
+    #carousel-example-generic #full_blanco #botones ul li {
+      list-style: none;
+      display: inline; }
+      #carousel-example-generic #full_blanco #botones ul li img {
+        margin-top: -50px; }
+    #carousel-example-generic #full_blanco textarea {
+      height: 250px; }
+    #carousel-example-generic #full_blanco #selectBlanco {
+      background-color: white;
+      color: #A9A9A9;
+      border-color: #A9A9A9; }
+  #carousel-example-generic #botonRegistro {
+    margin-top: 50px; }
+    #carousel-example-generic #botonRegistro .btn_registro {
+      width: 300px;
+      height: 80px;
+      font-size: 30px;
+      background-color: #00A6A8;
+      border-color: #00A6A8;
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+      float: right; }
+      #carousel-example-generic #botonRegistro .btn_registrohover {
+        background-color: transparent;
+        color: #00A6A8; }
+  #carousel-example-generic #full_verde {
+    height: 2000px;
+    background-color: #00A6A8;
+    padding: 50px; }
+    #carousel-example-generic #full_verde #dos, #carousel-example-generic #full_verde #cuatro, #carousel-example-generic #full_verde #seis {
+      margin-top: 150px; }
+      #carousel-example-generic #full_verde #dos h1, #carousel-example-generic #full_verde #cuatro h1, #carousel-example-generic #full_verde #seis h1 {
+        margin-top: 170px;
+        font-size: 50px; }
+      #carousel-example-generic #full_verde #dos #verde, #carousel-example-generic #full_verde #cuatro #verde, #carousel-example-generic #full_verde #seis #verde {
+        color: white; }
+    #carousel-example-generic #full_verde a {
+      color: white;
+      text-decoration: none; }
+  #carousel-example-generic #fechaNacimiento {
+    width: 50%;
+    margin-right: 10px; }
+  #carousel-example-generic input {
+    width: 100%;
+    border-radius: 20px; }
+  #carousel-example-generic textarea {
+    width: 100%;
+    height: 70px; }
+
+.contentForm {
+  margin-top: 50px; }
+  .contentForm ul li {
+    margin-left: -40px; }
+
+#fotos img {
+  margin-top: 20px; }
+
+.form-control {
+  width: 100%;
+  height: 129px;
+  border-color: transparent;
+  width: 100%; }
+
+.form-control-verde {
+  margin-top: 70px;
+  height: 129px;
+  border-color: white;
+  width: 100%;
+  background-color: #00A6A8;
+  color: white; }
+
+.form-control-verde_2 {
+  margin-top: auto;
+  height: 129px;
+  border-color: white;
+  width: 100%;
+  background-color: #00A6A8;
+  color: white; }
+
+footer {
+  background-color: #212348;
+  color: white;
+  /*.carousel-inner
+   * .carousel-control
+   * 	.right
+   * 		background-image: linear-gradient(to right, transparent 0px, transparent 100%) */ }
+  footer #texto {
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px; }
+  footer img {
+    margin-top: 10px;
+    padding: 20px; }
+  footer placeholder {
+    margin-top: 300px; }
+
+/*··@media querys························································································································ */
+/* Large desktops and laptops */
+/* Landscape tablets and medium desktops */
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  body #paginaPrincipal {
+    height: 1000px;
+    margin-top: 120px; }
+    body #paginaPrincipal p {
+      margin-top: 300px;
+      font-size: 70px;
+      color: white; }
+    body #paginaPrincipal span {
+      color: #CED500; }
+    body #paginaPrincipal #botonPrincipal {
+      margin-top: -250px; }
+    body #paginaPrincipal .btn {
+      width: 400px;
+      height: 120px;
+      position: relative;
+      z-index: 999;
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: transparent;
+      border-color: white; }
+      body #paginaPrincipal .btn:hover {
+        background-color: white; }
+    body #paginaPrincipal a {
+      font-size: 40px;
+      margin-left: -10px;
+      color: white;
+      text-decoration: none; }
+      body #paginaPrincipal a:hover {
+        color: #00A6A8; }
+  body #carousel-example-generic .carousel-control.right .glyphicon-chevron-right {
+    margin-right: 20px; }
+  body #carousel-example-generic .carousel-control.left .glyphicon-chevron-left:before {
+    margin-left: -20px; }
+
+  #carousel-example-generic {
+    position: relative;
+    z-index: 0;
+    background-color: #FFF;
+    margin-top: 1000px; }
+    #carousel-example-generic #texto {
+      margin-top: 250px; }
+      #carousel-example-generic #texto p {
+        color: white;
+        font-size: 40px; }
+      #carousel-example-generic #texto span {
+        color: #CED500;
+        font-size: 40px; } }
+/* Landscape phones and portrait tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+  body .navbar {
+    height: 100px; }
+    body .navbar img {
+      width: 80px; }
+  body #paginaPrincipal {
+    height: 1000px;
+    margin-top: 120px; }
+    body #paginaPrincipal p {
+      margin-top: 300px;
+      font-size: 50px;
+      color: white; }
+    body #paginaPrincipal span {
+      color: #CED500; }
+    body #paginaPrincipal #botonPrincipal {
+      margin-top: -250px; }
+    body #paginaPrincipal .btn {
+      width: 400px;
+      height: 120px;
+      position: relative;
+      z-index: 999;
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: transparent;
+      border-color: white; }
+      body #paginaPrincipal .btn:hover {
+        background-color: white; }
+    body #paginaPrincipal a {
+      font-size: 40px;
+      margin-left: -10px;
+      color: white;
+      text-decoration: none; }
+      body #paginaPrincipal a:hover {
+        color: #00A6A8; }
+  body #carousel-example-generic input {
+    height: 50px;
+    font-size: 17px; }
+  body #carousel-example-generic .carousel-control.right .glyphicon-chevron-right {
+    margin-right: 20px; }
+  body #carousel-example-generic .carousel-control.left .glyphicon-chevron-left:before {
+    margin-left: 20px; }
+
+  #carousel-example-generic {
+    position: relative;
+    z-index: 0;
+    background-color: #FFF;
+    margin-top: 1000px; }
+    #carousel-example-generic #texto {
+      margin-top: 250px; }
+      #carousel-example-generic #texto p {
+        color: white;
+        font-size: 40px; }
+      #carousel-example-generic #texto span {
+        color: #CED500;
+        font-size: 40px; }
+    #carousel-example-generic #full_blanco #inputPrincipal {
+      margin-top: 50px; }
+    #carousel-example-generic #full_blanco #selectBlanco {
+      height: 40px; }
+    #carousel-example-generic #full_verde #intro {
+      margin-top: 650px;
+      padding: 10px; }
+
+  .form-control {
+    height: 50px; }
+
+  .form-control-verde {
+    height: 50px; }
+
+  .form-control-verde_2 {
+    height: 50px; } }
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  body .navbar {
+    height: 100px; }
+    body .navbar img {
+      width: 80px; }
+  body #paginaPrincipal {
+    height: 1000px;
+    margin-top: 120px; }
+    body #paginaPrincipal p {
+      margin-top: 300px;
+      font-size: 50px;
+      color: white; }
+    body #paginaPrincipal span {
+      color: #CED500; }
+    body #paginaPrincipal #botonPrincipal {
+      margin-top: -250px; }
+    body #paginaPrincipal .btn {
+      width: 300px;
+      height: 120px;
+      position: relative;
+      z-index: 999;
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: transparent;
+      border-color: white; }
+      body #paginaPrincipal .btn:hover {
+        background-color: white; }
+    body #paginaPrincipal a {
+      font-size: 30px;
+      margin-left: -10px;
+      color: white;
+      text-decoration: none; }
+      body #paginaPrincipal a:hover {
+        color: #00A6A8; }
+  body #carousel-example-generic input {
+    height: 50px;
+    font-size: 17px; }
+  body #carousel-example-generic .carousel-control.right .glyphicon-chevron-right {
+    margin-right: 18px; }
+  body #carousel-example-generic .carousel-control.left .glyphicon-chevron-left:before {
+    margin-left: 20px; }
+
+  #carousel-example-generic {
+    position: relative;
+    z-index: 0;
+    background-color: #FFF;
+    margin-top: 1000px; }
+    #carousel-example-generic #texto {
+      margin-top: 250px; }
+      #carousel-example-generic #texto p {
+        color: white;
+        font-size: 25px; }
+      #carousel-example-generic #texto span {
+        color: #CED500;
+        font-size: 25px; }
+    #carousel-example-generic #full_blanco #inputPrincipal {
+      margin-top: 50px; }
+    #carousel-example-generic #full_blanco #selectBlanco {
+      height: 40px; }
+    #carousel-example-generic #full_verde #intro {
+      margin-top: 650px;
+      padding: 10px; }
+
+  .form-control {
+    height: 50px; }
+
+  .form-control-verde {
+    height: 50px; }
+
+  .form-control-verde_2 {
+    height: 50px; }
+    .form-control-verde_2 #botonRegistro .btn_registro {
+      width: 242px;
+      height: 64px;
+      font-size: 30px; } }
+
+/*# sourceMappingURL=styleFormSlider.min.css.map */

@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}MainEvent Producciones{%endblock%}</title>
+        {% block styles %}
+            <!-- Bootstrap Core CSS -->
+            <link href="{{asset('bundles/adminadmin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+
+            <!-- MetisMenu CSS -->
+            <link href="{{asset('bundles/adminadmin/bower_components/metisMenu/dist/metisMenu.min.css')}}" rel="stylesheet">
+
+            <!-- Timeline CSS -->
+            <link href="{{asset('bundles/adminadmin/dist/css/timeline.css')}}" rel="stylesheet">
+
+            <!-- Custom CSS -->
+            <link href="{{asset('bundles/adminadmin/dist/css/sb-admin-2.css')}}" rel="stylesheet">
+
+            <!-- Morris Charts CSS -->
+            <link href="{{asset('bundles/adminadmin/bower_components/morrisjs/morris.css')}}" rel="stylesheet">
+
+            <!-- Custom Fonts -->
+            <link href="{{asset('bundles/adminadmin/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+            <!-- Tags -->
+            <link href="{{ asset('css/select2.css') }}" rel="stylesheet">
+        {% endblock %}
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        {% block body %}
+            <div id="wrapper">
+                {% block navigation %}
+                    <!-- Navigation -->
+                    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">
+                        <div class="navbar-header">
+                            <a  href="{{path('dashboard')}}">
+                                <img style="display: block; margin-left: auto; margin-right: auto;" src="{{web_image('upload/default/defaul_logo2.png').resize(149,50)}}" />
+
+                            </a>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class=    "sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <!-- /.navbar-header -->
+
+                        <ul class="nav navbar-top-links navbar-right">
+                            {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) %}
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{{path('hojadevida',{ 'Estado': 'Inactivo' })}}">
+                                                <div> 
+                                                    <i class="fa fa-frown-o"></i> Tienes <b>{% render url('constructor', {'Estado': 'Inactivo'}) %}</b> 
+                                                    <span class="pull-right text-muted small">Registros pendientes</span>
+
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="{{path('hojadevida',{ 'Estado': 'Activo' })}}">
+                                                <div>
+
+                                                    <i class="fa  fa-smile-o"></i> Tienes <b>{% render url('constructor', {'Estado': 'Activo'}) %}</b>
+                                                    <span class="pull-right text-muted small">Registros activos</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="{{path('hojadevida',{ 'Estado': 'Vetado' })}}">
+                                                <div>
+                                                    <i class="fa fa-meh-o"></i> Tienes <b>{% render url('constructor', {'Estado': 'Vetado'}) %}</b>
+                                                    <span class="pull-right text-muted small">Registros vetados</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.dropdown-alerts -->
+                                </li>
+                            {%endif%}
+                            <!-- /.dropdown -->
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user fa-fw"></i> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} 
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out fa-fw"></i>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                                    </li>
+                                </ul>
+                                <!-- /.dropdown-user -->
+                            </li>
+                            <!-- /.dropdown -->
+                        </ul>
+                        <!-- /.navbar-top-links -->
+                        {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) or (is_granted("ROLE_USER")) %}
+
+                            <div class="navbar-default sidebar" role="navigation">
+                                <div class="sidebar-nav navbar-collapse">
+
+                                    <ul class="nav" id="side-menu">
+                                        <li>
+                                            <a href="{{path('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Bienvenido</a>
+                                        </li>
+                                        {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN")) %}
+                                        <li>
+                                            <a href="#"><i class="fa fa-navicon fa-fw"></i>Hojas de vida<span class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="{{path('hojadevida',{ 'Estado': 'Todas' })}}">Todas</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Mas<span class="fa arrow"></span></a>
+                                                    <ul class="nav nav-third-level">
+                                                        <li>
+                                                            <a href="{{path('hojadevida',{ 'Estado': 'Activo' })}}">Activos</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{path('hojadevida',{ 'Estado': 'Inactivo' })}}">Inactivos</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{path('hojadevida',{ 'Estado': 'Vetado' })}}">Vetados</a>
+                                                        </li>
+
+                                                    </ul>
+                                                    <!-- /.nav-third-level -->
+                                                </li>
+                                                <li>
+                                                    <a href="{{path('hojadevida_new')}}">Nueva</a>
+                                                </li>
+                                            </ul>   
+                                            <!-- /.nav-second-level -->
+                                        </li>
+                                        {%endif%}
+                                        {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_SUPER_ADMIN"))or (is_granted("ROLE_CLIEN")) %}
+                                        <li>
+                                            <a href="#"><i class="fa fa-th-list fa-fw"></i>Solicitudes<span class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="{{ path('solicitud_new')}}">Nueva solicitud</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('solicitud', { 'estado': 'Pendiente' }) }}">Pendientes</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('solicitud', { 'estado': 'Tramite' }) }}">Tramite</a>
+                                                </li>
+                                               <!--
+                                                <li>
+                                                    <a href="{{ path('solicitud', { 'estado': 'Notificacion' }) }}">Notificación</a>
+                                                </li>
+                                               -->
+                                                <li>
+                                                    <a href="{{ path('solicitud', { 'estado': 'Aprobado' }) }}">Aprobado</a>
+                                                </li>
+                                            </ul>
+                                            <!-- /.nav-second-level -->
+                                        </li>
+                                        {%endif%}
+                                        
+                                        {% if (is_granted("ROLE_ADMIN")) or (is_granted("ROLE_SUPER_ADMIN"))%}
+                                         <li>
+                                            <a href="{{path('informe')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Informes</a>
+                                        </li>
+                                        {%endif%}
+                                        <li>
+                                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuracion<span class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                {% if (is_granted("ROLE_SUPER_ADMIN")) or (is_granted("ROLE_ADMIN")) %}
+                                                    <li>
+                                                        <a href="{{ path('admin_user')}}"><i class="fa fa-users"></i>Todos</a>
+                                                    </li>
+                                                {%endif%}
+                                                {% if (is_granted("ROLE_ADMIN")) or  (is_granted("ROLE_USER")) or (is_granted("ROLE_CORDI")) or (is_granted("ROLE_CORCA")) or (is_granted("ROLE_CORDI")) %}
+                                                    <li class="">
+                                                        <a href="#"><i class="fa fa-user fa-fw"></i>Perfil <span class="fa arrow"></span></a>
+                                                        <ul class="nav nav-third-level collapse" aria-expanded="false" style="height: 0px;">
+                                                            <li>
+                                                                <a href="{{ path('fos_user_profile_edit') }}">Modificar datos</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ path('fos_user_profile_show')}}">Mostrar</a>
+                                                            </li>
+                                                        </ul>
+                                                        <!-- /.nav-third-level -->
+                                                    </li>
+                                                {%endif%}
+                                            </ul>
+                                    </ul>
+                                </div>
+                                <!-- /.sidebar-collapse -->
+                            </div>
+                        {%endif%}
+
+                        <!-- /.navbar-static-side -->
+                    </nav>
+                {% endblock %}
+                {% block Dashboard %}
+                    <div id="page-wrapper">
+                        {% block Contenido %}
+                            <div class="row">
+
+                                <center>
+                                    <img   u=image height="400" width="400" src="{{web_image('upload/default/defaul_logo.png').resize(400,400)}}" />
+                                </center>
+                                <div>
+                                {% endblock %}  
+                                <!-- /.row -->
+                            </div>
+                            <!-- /#page-wrapper -->
+
+                        {% endblock %}
+                    </div>
+                    <!-- /#wrapper -->
+
+
+                {% endblock %}
+                </body>
+                {% block javasctipt %}
+                    <!-- jQuery -->
+                    <script src="{{asset('bundles/adminadmin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
+                    <!-- Bootstrap Core JavaScript -->
+                    <script src="{{asset('bundles/adminadmin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
+                    <!-- Metis Menu Plugin JavaScript -->
+                    <script src="{{asset('bundles/adminadmin/bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
+
+                    <!-- Morris Charts JavaScript -->
+                    <script src="{{asset('bundles/adminadmin/bower_components/raphael/raphael-min.js')}}"></script>
+                    <script src="{{asset('bundles/adminadmin/bower_components/morrisjs/morris.min.js')}}"></script>
+                    <script src="{{asset('bundles/adminadmin/js/morris-data.js')}}"></script>
+                    <script src="{{asset('bundles/adminadmin/dist/js/sb-admin-2.js')}}"></script>
+                   
+                {%endblock%}
+
+                </html>

@@ -1,0 +1,166 @@
+{% extends '::base.html.twig' %}
+{% block title %}Mainevent|Aitv{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+<style>
+		body{
+		    height:100%;
+		}
+
+		body{
+		    height:100%;
+		    background: url({{asset('images/aitv-slide.jpg')}}) no-repeat center center fixed; 
+		    background-size:contain;
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+		}
+		
+		#panel p {
+			font-size: 30px;
+			color: #00A6A8;
+		}
+
+		.general {
+			margin-top: 300px;
+			background-color: black;
+			opacity: 0.7;
+			padding: 50px;
+		}
+			img {
+				float: right;
+				margin-top: -80px;
+			}
+
+		button{
+			margin-top: 10px;
+			background-color: transparent;
+			border-width: 10px;
+		}
+		#btn_1 {
+			border: 1px solid rgb(255, 255, 255);
+			background-color: transparent;
+		}
+		#btn_2 {
+			border: 1px solid rgb(255, 255, 255);
+			background-color: transparent;
+		}
+		#btn_1:hover {
+			border: 1px solid rgb(255, 255, 255);
+			background-color: gray;
+		}
+		#btn_2:hover {
+			border: 1px solid rgb(255, 255, 255);
+			background-color: gray;
+		}
+
+		a {
+		    color: white;
+		}
+		a:hover {
+			text-decoration: none;
+			color: white;
+		}
+
+
+/*----------------------------------------------------------------------------------------------------*/
+
+
+@media (min-width: 400px) and (max-width: 1024px) {
+       #uno {
+			background-color: gray;
+		}	
+		#dos {
+			background-color: #1A251E;
+		}
+		#btn_1:hover {
+			background-color: black;
+		}	
+		#btn_2:hover {
+			background-color: gray;
+		}
+}
+
+
+
+
+
+
+/* Smartphones (portrait and landscape) ———– */
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+		button{
+			margin-top: 200px;
+			background-color: transparent;
+			border-width: 10px;
+		}
+		
+}*/
+/* Smartphones (landscape) ———– */
+@media only screen and (min-width : 321px) {
+
+}
+/* Smartphones (portrait) ———– */
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+/* iPads (portrait and landscape) ———– */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+}
+/* iPads (landscape) ———– */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+/* iPads (portrait) ———– */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+/* Desktops and laptops ———– */
+@media only screen and (min-width : 1224px) {
+/* Styles */
+}
+/* Large screens ———– */
+@media only screen and (min-width : 1824px) {
+/* Styles */
+}
+	</style>
+{% endblock %}
+{% block body %}
+<div class="general">
+	<div class="row">
+
+<img src="{{asset('images/logo-aitv_white.png')}}" alt="" width="80px">
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			
+			<div id="panel">
+				<p align="center">Panel de administrador AITV ¡Bienvenido!</p>
+			</div>	
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="uno">
+					<p align="right">
+                                            <a href="{{path('dashboard')}}">
+						<button class="btn" id="btn_1">
+							Ir al administrador
+						</button>
+                                            </a>
+					</p>	
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="dos">
+					<p align="left">
+                                            <a href="http://www.aitv.com.co">
+						<button class="btn" id="btn_2">
+							Ir a la página web
+						</button>
+                                            </a>
+					</p>	
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+{% endblock %}

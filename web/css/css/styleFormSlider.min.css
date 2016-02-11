@@ -1,0 +1,270 @@
+@charset "UTF-8";
+body {
+  background-color: #00A6A8;
+  width: 100%; }
+
+.navbar {
+  height: 100px;
+  background-color: #00A6A8;
+  border-color: #00A6A8; }
+  .navbar img {
+    margin-top: -5px; }
+
+#paginaPrincipal {
+  height: 1000px; }
+  #paginaPrincipal p {
+    margin-top: 300px;
+    font-size: 30px;
+    color: white; }
+  #paginaPrincipal span {
+    color: #CED500; }
+  #paginaPrincipal #uno {
+    margin-top: -15px;
+    width: 3%;
+    height: 3px;
+    background-color: #CED500;
+    border-color: #CED500; }
+  #paginaPrincipal #dos {
+    margin-top: -15px;
+    width: 2%;
+    height: 3px;
+    background-color: rgba(206, 213, 0, 0.7);
+    border-color: rgba(206, 213, 0, 0.7); }
+  #paginaPrincipal #tres {
+    margin-top: -15px;
+    width: 1%;
+    height: 3px;
+    background-color: rgba(206, 213, 0, 0.4);
+    border-color: #rgba 206, 213, 0, 0.4; }
+  #paginaPrincipal #botonPrincipal {
+    margin-top: -200px; }
+  #paginaPrincipal .btn {
+    position: relative;
+    z-index: 999;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: transparent;
+    border-color: white; }
+    #paginaPrincipal .btn:hover {
+      background-color: white; }
+  #paginaPrincipal a {
+    color: white;
+    text-decoration: none; }
+    #paginaPrincipal a:hover {
+      color: #00A6A8; }
+
+#carousel-example-generic {
+  position: relative;
+  z-index: 1000000000;
+  background-color: #FFF;
+  margin-top: 10px; }
+  #carousel-example-generic #texto {
+    margin-top: 250px; }
+    #carousel-example-generic #texto p {
+      color: white;
+      font-size: 25px; }
+    #carousel-example-generic #texto span {
+      color: #CED500;
+      font-size: 25px; }
+  #carousel-example-generic .carousel-indicators li {
+    border: 3px solid #000; }
+  #carousel-example-generic .carousel-indicators .active {
+    background-color: transparent; }
+  #carousel-example-generic .siguiente {
+    margin-top: -147px;
+    background-color: transparent;
+    border-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 0px;
+    float: right; }
+    #carousel-example-generic .siguiente button {
+      margin-top: -60px;
+      background-color: transparent;
+      border: 3px solid black; }
+  #carousel-example-generic .anterior {
+    margin-top: -80px;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+    float: right; }
+    #carousel-example-generic .anterior button {
+      margin-top: -60px;
+      background-color: transparent;
+      border: 3px solid black; }
+  #carousel-example-generic .carousel-control.right {
+    background-image: linear-gradient(to right, transparent 0px, transparent 100%); }
+  #carousel-example-generic .carousel-control.left {
+    background-image: linear-gradient(to right, transparent 0px, transparent 100%); }
+  #carousel-example-generic #anterior {
+    margin-top: 400px; }
+  #carousel-example-generic #full_blanco {
+    height: 900px;
+    background-color: white;
+    padding: 50px; }
+    #carousel-example-generic #full_blanco #uno, #carousel-example-generic #full_blanco #tres, #carousel-example-generic #full_blanco #cinco {
+      margin-top: 150px; }
+      #carousel-example-generic #full_blanco #uno h1, #carousel-example-generic #full_blanco #tres h1, #carousel-example-generic #full_blanco #cinco h1 {
+        font-size: 20px; }
+    #carousel-example-generic #full_blanco #uno_2 h1 {
+      margin-top: 170px;
+      font-size: 20px; }
+    #carousel-example-generic #full_blanco #botones ul li {
+      list-style: none;
+      display: inline; }
+      #carousel-example-generic #full_blanco #botones ul li img {
+        margin-top: -50px; }
+  #carousel-example-generic #botonRegistro {
+    margin-top: 50px; }
+    #carousel-example-generic #botonRegistro .btn_registro {
+      background-color: #00A6A8;
+      border-color: #00A6A8;
+      color: white;
+      border-radius: 10px;
+      padding: 10px; }
+      #carousel-example-generic #botonRegistro .btn_registrohover {
+        background-color: transparent;
+        color: #00A6A8; }
+  #carousel-example-generic #full_verde {
+    height: 900px;
+    background-color: #00A6A8;
+    padding: 50px; }
+    #carousel-example-generic #full_verde #dos, #carousel-example-generic #full_verde #cuatro, #carousel-example-generic #full_verde #seis {
+      margin-top: 150px; }
+      #carousel-example-generic #full_verde #dos h1, #carousel-example-generic #full_verde #cuatro h1, #carousel-example-generic #full_verde #seis h1 {
+        font-size: 20px; }
+      #carousel-example-generic #full_verde #dos #verde, #carousel-example-generic #full_verde #cuatro #verde, #carousel-example-generic #full_verde #seis #verde {
+        color: white; }
+    #carousel-example-generic #full_verde a {
+      color: white;
+      text-decoration: none; }
+  #carousel-example-generic #nombreApellido {
+    width: 40%;
+    margin-right: 10px; }
+  #carousel-example-generic #fechaNacimiento {
+    width: 50%;
+    margin-right: 10px; }
+  #carousel-example-generic input {
+    width: 100%; }
+  #carousel-example-generic textarea {
+    width: 100%;
+    height: 70px; }
+
+#fotos img {
+  margin-top: 20px; }
+
+footer {
+  background-color: #212348;
+  color: white;
+  /*.carousel-inner
+   * .carousel-control
+   * 	.right
+   * 		background-image: linear-gradient(to right, transparent 0px, transparent 100%) */ }
+  footer #texto {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px; }
+  footer img {
+    margin-top: 10px;
+    padding: 20px; }
+
+.modal-header {
+  min-height: 16.43px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 75px; }
+  .modal-header .modal-title {
+    margin-top: -43px; }
+  .modal-header .close {
+    margin-top: -41px; }
+
+.modal-body {
+  position: relative;
+  z-index: 99999;
+  background-color: rgba(250, 235, 204, 0.2); }
+
+.modal-backdrop.in {
+  opacity: 0.5;
+  position: relative;
+  z-index: 99999; }
+  .modal-backdrop.in .checkbox-inline {
+    list-style: none; }
+
+.modal-footer {
+  height: 65px; }
+
+#botonCerrar {
+  color: white;
+  background-color: #00A6A8; }
+  #botonCerrar:hover {
+    color: #00A6A8;
+    background-color: white;
+    border: 3px solid #00A6A8; }
+
+/*··@media querys························································································································ */
+/* Large desktops and laptops */
+/* Landscape tablets and medium desktops */
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  body #carousel-example-generic .carousel-indicators .active {
+    background-color: transparent; }
+  body #carousel-example-generic .siguiente button {
+    margin-left: 150px;
+    position: absolute; }
+  body #carousel-example-generic .anterior button {
+    position: absolute; }
+  body #carousel-example-generic .uno {
+    height: 1200px; }
+  body #carousel-example-generic #full_blanco {
+    background-color: white;
+    padding: 50px; }
+  body #uno_2 {
+    margin-top: -100px; }
+    body #uno_2 h1 {
+      margin-top: 0px; }
+  body #botones {
+    margin-top: 0px; } }
+/* Landscape phones and portrait tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+  body #carousel-example-generic .carousel-indicators .active {
+    background-color: transparent; }
+  body #carousel-example-generic .siguiente button {
+    margin-left: 400px;
+    position: absolute; }
+  body #carousel-example-generic .anterior button {
+    margin-left: -450px;
+    position: absolute; }
+  body #carousel-example-generic .uno {
+    height: 1200px; }
+  body #carousel-example-generic #full_blanco {
+    background-color: white;
+    padding: 50px; }
+  body #uno_2 {
+    margin-top: -100px; }
+    body #uno_2 h1 {
+      margin-top: 0px; }
+  body #botones {
+    margin-top: 0px; } }
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  body #carousel-example-generic .carousel-indicators .active {
+    background-color: transparent; }
+  body #carousel-example-generic .siguiente button {
+    margin-left: 250px;
+    position: absolute; }
+  body #carousel-example-generic .anterior button {
+    margin-left: -350px;
+    position: absolute; }
+  body #carousel-example-generic .uno {
+    height: 1200px; }
+  body #carousel-example-generic #full_blanco {
+    background-color: white;
+    padding: 50px; }
+  body #uno_2 {
+    margin-top: -100px; }
+    body #uno_2 h1 {
+      margin-top: 0px; }
+  body #botones {
+    margin-top: 0px; } }
+
+/*# sourceMappingURL=styleFormSlider.min.css.map */

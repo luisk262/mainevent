@@ -1,0 +1,12 @@
+services:
+    admin_admin.admin.hojadevida:
+        class: Admin\AdminBundle\Admin\HojadevidaAdmin
+        arguments: [~, Admin\AdminBundle\Entity\Hojadevida, AdminAdminBundle:HojadevidaAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Hojadevida}
+
+    admin_admin.admin.solicitud:
+        class: Admin\AdminBundle\Admin\SolicitudAdmin
+        arguments: [~, Admin\AdminBundle\Entity\Solicitud, AdminAdminBundle:SolicitudAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Solicitud}

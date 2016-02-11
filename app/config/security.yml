@@ -1,0 +1,50 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:
+        ROLE_USER:        ROLE_USER
+        ROLE_CORDI:       ROLE_CORDI
+        ROLE_CLIEN:       ROLE_CLIEN
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_CORCA:       ROLE_CORCA
+        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
+
+    providers:
+        chain_providers:
+            chain:
+                providers: [ fos_userbundle, in_memory]
+        fos_userbundle:
+            id: fos_user.user_provider.username
+        in_memory:
+            memory:
+                users:                   
+                    admin: { password: JL90uiU6, roles: [ 'ROLE_SUPER_ADMIN' ] }
+        
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: chain_providers
+                csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+
+            logout:       true
+            anonymous:    true
+            remember_me:
+                key:      aSecretKey
+                lifetime: 3600
+                path:     /
+                domain:   localhost
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/dashboard/, role: [ROLE_SUPER_ADMIN,ROLE_ADMIN,ROLE_USER,ROLE_CORDI,ROLE_CLIEN,ROLE_CORCA]}
+        - { path: ^/admin/hojadevida/*, role: [ROLE_SUPER_ADMIN,ROLE_ADMIN,ROLE_CORDI]}
+        - { path: ^/admin/solicitud/, role: [ROLE_SUPER_ADMIN,ROLE_ADMIN,ROLE_CORDI,ROLE_CLIEN]}
+        
+        - { path: ^/admin/user/, role: [ROLE_SUPER_ADMIN,ROLE_ADMIN]}
+
+
+
+       
